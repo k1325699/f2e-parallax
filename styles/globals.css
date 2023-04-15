@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply tracking-m sm:tracking-d text-body-m sm:text-body-d;
+  }
+  h1 {
+    @apply font-bold sm:text-h1-d text-h1-m;
+  }
+  h2 {
+    @apply font-bold sm:text-h2-d text-h2-m;
+  }
+  h3 {
+    @apply font-bold sm:text-h3-d text-h3-m;
+  }
+  h4 {
+    @apply font-bold sm:text-h4-d text-h4-m;
+  }
+  h5 {
+    @apply font-bold sm:text-h5-d text-h5-m;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.heightlight {
+  @apply font-bold sm:text-height-d text-height-m;
 }
