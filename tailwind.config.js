@@ -52,6 +52,22 @@ module.exports = {
           0: "#FFFFFF",
         },
       },
+      backgroundImage: (theme) => ({
+        joinButton: "url('/assets/btn/btn_join.png')",
+        joinButtonHover: "url('/assets/btn/btn_join_h.png')",
+        map: "url('/assets/main/map.svg')",
+        mapFinish: "url('/assets/main/map_finish.svg')",
+        trafficLights: "url('/assets/main/ready_frame.png')",
+      }),
+      keyframes: {
+        hand: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(5px)" },
+        },
+      },
+      animation: {
+        hand: "hand 0.7s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

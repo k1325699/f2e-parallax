@@ -23,6 +23,6 @@
   }
 }
 
-.heightlight {
+.highlight {
   @apply font-bold sm:text-height-d text-height-m;
 }

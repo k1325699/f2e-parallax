@@ -1,8 +1,86 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import Link from "next/link";
+import userIcon from "@/public/assets/btn/btn_user.png";
+import joinHandIcon from "@/public/assets/btn/btn_joinHand.png";
+import mapNowIcon from "@/public/assets/main/map_now.gif";
+import road from "@/public/assets/main/road.png";
+import dog from "@/public/assets/character/dog.gif";
+import pig from "@/public/assets/character/pig.gif";
+import cat from "@/public/assets/character/cat.gif";
+import { useEffect, useRef, useState } from "react";
+import { mapNow } from "@/styles/parallaxStyle";
+import Title from "@/components/Title";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  return <div className="bg-secondary min-h-screen"></div>;
+  // const mapNowIndex = useRef(0);
+  const [mapNowIndex, setMapNowIndex] = useState(0);
+  return (
+    <div className="bg-secondary min-h-screen">
+      {/* user */}
+      <a
+        className="fixed right-[15px] top-[30px] z-50"
+        href={"https://2022.thef2e.com/users"}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Image src={userIcon} alt={"userIcon"} width={80} height={80} />
+      </a>
+      {/* map */}
+      <Title />
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2" style={{}}>
+        <Image src={road} alt={"跑道"} width={1175} h={135.5} />
+        <Image
+          src={dog}
+          alt={"狗狗"}
+          width={351}
+          h={601}
+          className="absolute bottom-0 left-0"
+        />
+        <Image
+          src={pig}
+          alt={"豬豬"}
+          width={351}
+          h={527}
+          className="absolute bottom-0 left-[100%] -translate-x-[100%]"
+        />
+        <Image
+          src={cat}
+          alt={"貓貓"}
+          width={370}
+          h={601}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 "
+        />
+      </div>{" "}
+      <div className="bg-map fixed w-[260px] h-[170px] left-[30px] bottom-[20px]">
+        <Image
+          className="absolute "
+          src={mapNowIcon}
+          alt={"現在位置"}
+          width={30}
+          height={30}
+          style={mapNow[mapNowIndex]}
+        />
+      </div>
+      {/* join Button */}
+      <div className="fixed right-[15px] bottom-[20px] highlight flex flex-col items-center justify-center">
+        <p className="tracking-m text-primary mb-[4px]">JOIN</p>
+        <Image
+          src={joinHandIcon}
+          alt={"報名按鈕"}
+          width={57}
+          height={71}
+          className="animate-hand"
+        />
+        <a
+          className="bg-joinButton hover:bg-joinButtonHover w-[103px] block h-[60px] bg-cover"
+          href="https://2022.thef2e.com/signup"
+          target="_blank"
+          rel="noreferrer"
+        ></a>
+      </div>
+    </div>
+  );
 }
