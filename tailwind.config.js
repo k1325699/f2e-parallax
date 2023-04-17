@@ -43,7 +43,7 @@ module.exports = {
           dark: "#CD331A",
           tint: "#FFB5A4",
         },
-        gary: {
+        gray: {
           100: "#000000",
           80: "#333333",
           60: "#666666",

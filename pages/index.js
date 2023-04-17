@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import Link from "next/link";
 import userIcon from "@/public/assets/btn/btn_user.png";
 import joinHandIcon from "@/public/assets/btn/btn_joinHand.png";
 import mapNowIcon from "@/public/assets/main/map_now.gif";
@@ -11,11 +9,9 @@ import cat from "@/public/assets/character/cat.gif";
 import { useEffect, useRef, useState } from "react";
 import { mapNow } from "@/styles/parallaxStyle";
 import Title from "@/components/Title";
+import { imageLength, lengthStyle, logoWidth } from "@/styles/lengthStyle";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
-  // const mapNowIndex = useRef(0);
+const Home = () => {
   const [mapNowIndex, setMapNowIndex] = useState(0);
   return (
     <div className="bg-secondary min-h-screen">
@@ -28,32 +24,62 @@ export default function Home() {
       >
         <Image src={userIcon} alt={"userIcon"} width={80} height={80} />
       </a>
-      {/* map */}
       <Title />
+      {/* 腳色 */}
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2" style={{}}>
         <Image src={road} alt={"跑道"} width={1175} h={135.5} />
-        <Image
-          src={dog}
-          alt={"狗狗"}
-          width={351}
-          h={601}
-          className="absolute bottom-0 left-0"
-        />
-        <Image
-          src={pig}
-          alt={"豬豬"}
-          width={351}
-          h={527}
-          className="absolute bottom-0 left-[100%] -translate-x-[100%]"
-        />
-        <Image
-          src={cat}
-          alt={"貓貓"}
-          width={370}
-          h={601}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 "
-        />
-      </div>{" "}
+        <div
+          className="absolute bottom-0 left-1/2  -translate-x-[150%]"
+          style={{
+            height: `calc(${imageLength.dogHeight})`,
+            width: `calc((${imageLength.dogHeight})*0.584)`,
+          }}
+        >
+          <Image
+            src={dog}
+            alt={"狗狗"}
+            // height="5vh"
+            // width={351}
+            // h={601}
+            fill
+            // sizes="15vw"
+            className=""
+          />
+        </div>
+        <div
+          className="absolute  bottom-0 left-1/2  translate-x-1/2"
+          style={{
+            height: `calc(${imageLength.pigHeight})`,
+            width: `calc((${imageLength.pigHeight})*0.666)`,
+          }}
+        >
+          <Image
+            src={pig}
+            alt={"豬豬"}
+            // width={351}
+            // h={527}
+            fill
+            // className="absolute bottom-0 left-[100%] -translate-x-[100%]"
+          />
+        </div>
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2"
+          style={{
+            height: `calc(${imageLength.dogHeight})`,
+            width: `calc((${imageLength.dogHeight})*0.61564)`,
+          }}
+        >
+          <Image
+            src={cat}
+            alt={"貓貓"}
+            // width={370}
+            // h={601}
+            fill
+            // className="absolute bottom-0 left-1/2 -translate-x-1/2 "
+          />
+        </div>
+      </div>
+      {/* map */}
       <div className="bg-map fixed w-[260px] h-[170px] left-[30px] bottom-[20px]">
         <Image
           className="absolute "
@@ -83,4 +109,5 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+export default Home;

@@ -4,7 +4,15 @@
 
 @layer base {
   body {
-    @apply tracking-m sm:tracking-d text-body-m sm:text-body-d;
+    @apply tracking-m  text-body-m sm:text-body-d select-none transition-all;
+
+    user-drag: none;
+    -webkit-user-drag: none;
+  }
+  img {
+    @apply select-none;
+    user-drag: none;
+    -webkit-user-drag: none;
   }
   h1 {
     @apply font-bold sm:text-h1-d text-h1-m;
