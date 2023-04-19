@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    @apply transition-all duration-300;
+  }
   body {
-    @apply tracking-m  text-body-m sm:text-body-d select-none transition-all;
+    @apply tracking-m  text-body-m sm:text-body-d select-none;
 
     user-drag: none;
     -webkit-user-drag: none;
