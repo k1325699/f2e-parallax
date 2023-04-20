@@ -12,11 +12,12 @@ import Title from '@/components/Title';
 import { imageLength, lengthStyle, logoWidth } from '@/styles/lengthStyle';
 import useScroll from '@/hook/useScroll';
 import ScrollContext from '@/context';
+import Troubled from '@/components/Troubled';
 
 const Home = () => {
-  const [mapNowIndex, setMapNowIndex] = useState(0);
   const viewRef = useRef(null);
   const scrollValue = useScroll(viewRef);
+  const { nowPageIndex } = scrollValue;
   return (
     <ScrollContext.Provider value={scrollValue}>
       <div className="bg-secondary min-h-screen" ref={viewRef}>
@@ -30,8 +31,13 @@ const Home = () => {
           <Image src={userIcon} alt={'userIcon'} width={80} height={80} />
         </a>
         <Title />
+        <Troubled />
         {/* 腳色 */}
-        <div className="fixed bottom-0 left-1/2 -translate-x-1/2" style={{}}>
+        <div
+          className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${
+            nowPageIndex > 0 ? 'scale-50 translate-y-[25%]' : 'scale-100'
+          }`}
+        >
           <Image src={road} alt={'跑道'} width={1175} h={135.5} />
           <div
             className="absolute bottom-0 left-1/2  -translate-x-[150%]"
@@ -92,7 +98,7 @@ const Home = () => {
             alt={'現在位置'}
             width={30}
             height={30}
-            style={mapNow[mapNowIndex]}
+            style={mapNow[nowPageIndex]}
           />
         </div>
         {/* join Button */}

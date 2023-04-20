@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react';
 import titleScroll from './titleScroll';
+import troubledScroll from './troubledScroll';
 
 const useScroll = (viewRef) => {
-  const [mapNowIndex, setMapNowIndex] = useState(0);
+  const [nowPageIndex, setNowPageIndex] = useState(0);
   const [titleNowIndex, setTitleNowIndex] = useState(0);
+  const [troubledNowIndex, setTroubledNowIndex] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
       const fullHeight = window.innerHeight;
-      const nowScroll = Math.abs(viewRef.current.getBoundingClientRect().y);
-      const aaa = Math.abs(viewRef.current.getBoundingClientRect().y);
-      const TitleFinish = fullHeight;
-      console.log(aaa, 'aaa');
-      // console.log(nowScroll, TitleFinish);
-      if (nowScroll < TitleFinish) {
+      const initScroll = Math.abs(viewRef.current.getBoundingClientRect().y);
+      const titleFinish = fullHeight;
+      const troubledFinish = fullHeight * 3;
+
+      if (initScroll < titleFinish) {
+        setNowPageIndex(0);
+        const nowScroll = initScroll;
         titleScroll(fullHeight, nowScroll, setTitleNowIndex);
+        return;
+      }
+      if (initScroll < troubledFinish) {
+        setNowPageIndex(1);
+        const nowScroll = initScroll - titleFinish;
+        troubledScroll(fullHeight, nowScroll, setTroubledNowIndex);
         return;
       }
     };
@@ -21,7 +30,7 @@ const useScroll = (viewRef) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { mapNowIndex, titleNowIndex };
+  return { nowPageIndex, titleNowIndex, troubledNowIndex };
 };
 
 export default useScroll;
