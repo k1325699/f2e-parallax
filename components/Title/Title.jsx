@@ -18,9 +18,6 @@ const titleContentData = [
 ];
 const Title = () => {
   const { titleNowIndex } = useContext(ScrollContext);
-  useEffect(() => {
-    console.log(titleNowIndex, 'titleNowIndex');
-  }, [titleNowIndex]);
   const lightShow = () => {
     const initStyle = {
       red: { opacity: 1 },
