@@ -5,14 +5,9 @@ import talking from '@/public/assets/bg/talking_troubled.png';
 import question1 from '@/public/assets/main/question_1.png';
 import question2 from '@/public/assets/main/question_2.png';
 import question3 from '@/public/assets/main/question_3.png';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import ScrollContext from '@/context';
 import TroubledContent from './TroubledContent';
-const titleContentData = [
-  { title: '前端工程師', number: 920 },
-  { title: 'UI設計師', number: 110 },
-  { title: '團體組', number: 41 },
-];
 const Troubled = () => {
   const { troubledNowIndex, nowPageIndex } = useContext(ScrollContext);
   return (

@@ -55,6 +55,7 @@ module.exports = {
       backgroundImage: (theme) => ({
         joinButton: "url('/assets/btn/btn_join.png')",
         joinButtonHover: "url('/assets/btn/btn_join_h.png')",
+        HandIcon: "url('/assets/btn/btn_joinHand.png')",
         map: "url('/assets/main/map.svg')",
         mapFinish: "url('/assets/main/map_finish.svg')",
         trafficLights: "url('/assets/main/ready_frame.png')",
