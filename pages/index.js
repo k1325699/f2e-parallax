@@ -13,11 +13,21 @@ import { imageLength, lengthStyle, logoWidth } from '@/styles/lengthStyle';
 import useScroll from '@/hook/useScroll';
 import ScrollContext from '@/context';
 import Troubled from '@/components/Troubled';
+import Theme from '@/components/Theme';
 
 const Home = () => {
   const viewRef = useRef(null);
   const scrollValue = useScroll(viewRef);
   const { nowPageIndex } = scrollValue;
+  const characterScale = () => {
+    if (nowPageIndex === 0) {
+      return 'scale-100';
+    }
+    if (nowPageIndex === 2) {
+      return 'scale-75 translate-y-[25%]';
+    }
+    return 'scale-50 translate-y-[25%]';
+  };
   return (
     <ScrollContext.Provider value={scrollValue}>
       <div className="bg-secondary min-h-screen" ref={viewRef}>
@@ -32,11 +42,10 @@ const Home = () => {
         </a>
         <Title />
         <Troubled />
+        <Theme />
         {/* 腳色 */}
         <div
-          className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${
-            nowPageIndex > 0 ? 'scale-50 translate-y-[25%]' : 'scale-100'
-          }`}
+          className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${characterScale()}`}
         >
           <Image src={road} alt={'跑道'} width={1175} h={135.5} />
           <div
