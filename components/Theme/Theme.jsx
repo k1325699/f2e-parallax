@@ -10,7 +10,7 @@ const Theme = () => {
   return (
     <div
       className={`h-[100vh] ${
-        nowPageIndex === 2 ? 'opacity-100' : 'opacity-0'
+        nowPageIndex === 2 && themeNowIndex < 3 ? 'opacity-100' : 'opacity-0'
       } `}
     >
       <div

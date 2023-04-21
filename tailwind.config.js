@@ -53,6 +53,7 @@ module.exports = {
         },
       },
       backgroundImage: (theme) => ({
+        logo: "url('/assets/logo/logo.png')",
         joinButton: "url('/assets/btn/btn_join.png')",
         joinButtonHover: "url('/assets/btn/btn_join_h.png')",
         HandIcon: "url('/assets/btn/btn_joinHand.png')",
