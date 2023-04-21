@@ -12,5 +12,6 @@ const themeScroll = (innerHeight, nowScroll, setTrouble) => {
     setTrouble(2);
     return;
   }
+  setTrouble(3);
 };
 export default themeScroll;

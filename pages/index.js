@@ -14,6 +14,7 @@ import useScroll from '@/hook/useScroll';
 import ScrollContext from '@/context';
 import Troubled from '@/components/Troubled';
 import Theme from '@/components/Theme';
+import Topic from '@/components/Topic/Topic';
 
 const Home = () => {
   const viewRef = useRef(null);
@@ -31,6 +32,12 @@ const Home = () => {
   return (
     <ScrollContext.Provider value={scrollValue}>
       <div className="bg-secondary min-h-screen" ref={viewRef}>
+        {/* logo */}
+        <div
+          className={`bg-logo w-[200px] h-[149px] bg-cover fixed top-[30px] left-[40px] ${
+            nowPageIndex > 0 ? 'opacity-100' : 'opacity-0'
+          }`}
+        ></div>
         {/* user */}
         <a
           className="fixed right-[15px] top-[30px] z-50"
@@ -43,6 +50,7 @@ const Home = () => {
         <Title />
         <Troubled />
         <Theme />
+        <Topic />
         {/* 腳色 */}
         <div
           className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${characterScale()}`}
