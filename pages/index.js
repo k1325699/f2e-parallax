@@ -16,11 +16,12 @@ import Troubled from '@/components/Troubled';
 import Theme from '@/components/Theme';
 import Topic from '@/components/Topic';
 import Date from '@/components/Date';
+import Contest from '@/components/Contest';
 
 const Home = () => {
   const viewRef = useRef(null);
   const scrollValue = useScroll(viewRef);
-  const { nowPageIndex } = scrollValue;
+  const { contestNowIndex, nowPageIndex } = scrollValue;
   const characterScale = () => {
     if (nowPageIndex === 0) {
       return 'scale-100';
@@ -30,6 +31,11 @@ const Home = () => {
     }
     if (nowPageIndex === 4) {
       return 'scale-[60%] translate-y-[25%]';
+    }
+    if (nowPageIndex === 5) {
+      return contestNowIndex >= 2
+        ? 'scale-75 translate-y-[25%]'
+        : 'scale-25 translate-y-[25%]';
     }
     return 'scale-50 translate-y-[25%]';
   };
@@ -56,6 +62,7 @@ const Home = () => {
         <Theme />
         <Topic />
         <Date />
+        <Contest />
         {/* 腳色 */}
         <div
           className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${characterScale()}`}
