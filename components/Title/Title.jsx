@@ -17,7 +17,7 @@ const titleContentData = [
   { title: '團體組', number: 41 },
 ];
 const Title = () => {
-  const { titleNowIndex } = useContext(ScrollContext);
+  const { titleNowIndex, nowPageIndex } = useContext(ScrollContext);
   const lightShow = () => {
     const initStyle = {
       red: { opacity: 1 },
@@ -54,7 +54,9 @@ const Title = () => {
   // const [,set]=useState(0)
   return (
     <div
-      className={`h-[200vh] ${titleNowIndex < 5 ? 'opacity-100' : 'opacity-0'}`}
+      className={`h-[200vh] ${
+        titleNowIndex < 5 && nowPageIndex === 0 ? 'opacity-100' : 'opacity-0'
+      }`}
     >
       <Image
         src={start}
