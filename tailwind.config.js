@@ -64,6 +64,8 @@ module.exports = {
         talkingCenter: "url('/assets/bg/bg_talking_c.png')",
         talkingLeft: "url('/assets/bg/bg_talking_l.png')",
         talkingRight: "url('/assets/bg/bg_talking_r.png')",
+        dateLine: "url('/assets/main/date_line.png')",
+        dateWeekLine: "url('/assets/main/date_weekLine.png')",
       }),
       keyframes: {
         hand: {

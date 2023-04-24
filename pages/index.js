@@ -14,7 +14,8 @@ import useScroll from '@/hook/useScroll';
 import ScrollContext from '@/context';
 import Troubled from '@/components/Troubled';
 import Theme from '@/components/Theme';
-import Topic from '@/components/Topic/Topic';
+import Topic from '@/components/Topic';
+import Date from '@/components/Date';
 
 const Home = () => {
   const viewRef = useRef(null);
@@ -26,6 +27,9 @@ const Home = () => {
     }
     if (nowPageIndex === 2) {
       return 'scale-75 translate-y-[25%]';
+    }
+    if (nowPageIndex === 4) {
+      return 'scale-[60%] translate-y-[25%]';
     }
     return 'scale-50 translate-y-[25%]';
   };
@@ -51,6 +55,7 @@ const Home = () => {
         <Troubled />
         <Theme />
         <Topic />
+        <Date />
         {/* 腳色 */}
         <div
           className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${characterScale()}`}
@@ -119,7 +124,7 @@ const Home = () => {
           />
         </div>
         {/* join Button */}
-        <div className="fixed right-[15px] bottom-[20px] highlight flex flex-col items-center justify-center">
+        <div className="fixed right-[15px] bottom-[20px] highlight flex flex-col items-center justify-center ">
           <p className="tracking-m text-primary mb-[4px]">JOIN</p>
           <Image
             src={joinHandIcon}

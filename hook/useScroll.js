@@ -3,6 +3,7 @@ import titleScroll from './titleScroll';
 import troubledScroll from './troubledScroll';
 import themeScroll from './themeScroll';
 import topicScroll from './topicScroll';
+import dateScroll from './dateScroll';
 
 const useScroll = (viewRef) => {
   const [nowPageIndex, setNowPageIndex] = useState(0);
@@ -10,6 +11,7 @@ const useScroll = (viewRef) => {
   const [troubledNowIndex, setTroubledNowIndex] = useState(0);
   const [themeNowIndex, setThemeNowIndex] = useState(0);
   const [topicNowIndex, setTopicNowIndex] = useState(0);
+  const [dateNowIndex, setDateNowIndex] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
       const fullHeight = window.innerHeight;
@@ -18,6 +20,7 @@ const useScroll = (viewRef) => {
       const troubledFinish = fullHeight * 2;
       const themeFinish = fullHeight * 3;
       const topicFinish = fullHeight * 5;
+      const dateFinish = fullHeight * 7;
       console.log(initScroll);
       if (initScroll < titleFinish) {
         setNowPageIndex(0);
@@ -43,7 +46,14 @@ const useScroll = (viewRef) => {
         topicScroll(fullHeight, nowScroll, setTopicNowIndex);
         return;
       }
-      setNowPageIndex(4);
+      if (initScroll < dateFinish) {
+        const nowScroll = initScroll - topicFinish;
+        setNowPageIndex(4);
+        dateScroll(fullHeight, nowScroll, setDateNowIndex);
+        return;
+      }
+
+      // setNowPageIndex(4);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -55,6 +65,7 @@ const useScroll = (viewRef) => {
     troubledNowIndex,
     themeNowIndex,
     topicNowIndex,
+    dateNowIndex,
   };
 };
 
