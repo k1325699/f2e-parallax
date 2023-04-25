@@ -17,6 +17,7 @@ import Theme from '@/components/Theme';
 import Topic from '@/components/Topic';
 import Date from '@/components/Date';
 import Contest from '@/components/Contest';
+import Sponsor from '@/components/Sponsor';
 
 const Home = () => {
   const viewRef = useRef(null);
@@ -63,6 +64,7 @@ const Home = () => {
         <Topic />
         <Date />
         <Contest />
+        <Sponsor />
         {/* 腳色 */}
         <div
           className={`fixed bottom-0 left-1/2 -translate-x-1/2  ${characterScale()}`}
