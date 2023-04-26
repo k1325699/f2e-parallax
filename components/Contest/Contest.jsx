@@ -29,7 +29,7 @@ const Contest = () => {
     >
       <div className={`${contestNowIndex >= 2 ? 'opacity-0' : 'opacity-100'}`}>
         <h2
-          className={`text-highlight fixed top-[232px] text-center left-1/2 -translate-x-1/2 ${titleStyle()}`}
+          className={`text-highlight fixed top-[232px] text-center left-1/2 -translate-x-1/2 z-50 ${titleStyle()}`}
         >
           區區修煉已經無法滿足了嗎？
         </h2>
