@@ -67,6 +67,9 @@ module.exports = {
         dateLine: "url('/assets/main/date_line.png')",
         dateWeekLine: "url('/assets/main/date_weekLine.png')",
         sponsor: "url('/assets/btn/btn_sponsor.png')",
+        finish: "url('/assets/main/finish.png')",
+        finishLineL: "url('/assets/main/finishLine_l.png')",
+        finishLineR: "url('/assets/main/finishLine_r.png')",
       }),
       keyframes: {
         hand: {

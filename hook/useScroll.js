@@ -6,6 +6,7 @@ import topicScroll from './topicScroll';
 import dateScroll from './dateScroll';
 import contestScroll from './contestScroll';
 import sponsorScroll from './sponsorScoll';
+import endScroll from './endScroll';
 
 const useScroll = (viewRef) => {
   const [nowPageIndex, setNowPageIndex] = useState(0);
@@ -16,6 +17,7 @@ const useScroll = (viewRef) => {
   const [dateNowIndex, setDateNowIndex] = useState(0);
   const [contestNowIndex, setContestNowIndex] = useState(0);
   const [sponsorNowIndex, setSponsorNowIndex] = useState(0);
+  const [endNowIndex, setEndNowIndex] = useState(0);
   useEffect(() => {
     const handleScroll = () => {
       const fullHeight = window.innerHeight;
@@ -27,6 +29,7 @@ const useScroll = (viewRef) => {
       const dateFinish = fullHeight * 7;
       const contestFinish = fullHeight * 9;
       const sponsorFinish = fullHeight * 11;
+      const endFinish = fullHeight * 13;
       console.log(initScroll);
       if (initScroll < titleFinish) {
         setNowPageIndex(0);
@@ -70,8 +73,13 @@ const useScroll = (viewRef) => {
         sponsorScroll(fullHeight, nowScroll, setSponsorNowIndex);
         return;
       }
-
-      // setNowPageIndex(4);
+      if (initScroll < endFinish) {
+        const nowScroll = initScroll - sponsorFinish;
+        setNowPageIndex(7);
+        endScroll(fullHeight, nowScroll, setEndNowIndex);
+        return;
+      }
+      setNowPageIndex(8);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -86,6 +94,7 @@ const useScroll = (viewRef) => {
     dateNowIndex,
     contestNowIndex,
     sponsorNowIndex,
+    endNowIndex,
   };
 };
 
