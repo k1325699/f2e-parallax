@@ -26,7 +26,7 @@ const Home = () => {
   const scrollValue = useScroll(viewRef);
   const { contestNowIndex, endNowIndex, nowPageIndex } = scrollValue;
   const characterScale = () => {
-    if (nowPageIndex === 0 || (nowPageIndex === 7 && endNowIndex > 2)) {
+    if (nowPageIndex === 7 && endNowIndex > 2) {
       return 'scale-[125%]';
     }
     if (
